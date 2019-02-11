@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% block content %}
+    <form method="post" action="{% url 'update_profile' %}" class="accountform" enctype="multipart/form-data">
+        <fieldset class="form-group">
+            {% csrf_token %}
+            
+            <!--{{  profile_form | as_bootstrap }}-->
+            <label for="{{ profile_form.bio.id_for_label }}">Bio:</label>
+            {{ profile_form.bio }}
+            <hr>
+            <label for="{{ profile_form.location.id_for_label }}">Location:</label>
+            {{ profile_form.location }}
+            <hr>
+            <label for="{{ profile_form.dob.id_for_label }}">Date of Birth:</label>
+            {{ profile_form.dob }}
+            <hr>
+            <label for="{{ profile_form.profile_pic.id_for_label }}">Profile Picture:</label>
+            {{ profile_form.profile_pic }}
+            
+            <button type="submit" class="btn btn-primary">Update Details</button>
+        </fieldset>
+    </form>
+{% endblock %}
