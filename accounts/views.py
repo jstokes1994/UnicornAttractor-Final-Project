@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from django.contrib import messages, auth
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from .forms import UserLoginForm, UserRegistrationForm, ProfileForm
 from .models import Profile
 from django.template.context_processors import csrf
@@ -54,7 +54,6 @@ def profile(request):
     
 @login_required
 def edit_profile(request):
-    user = Profile.objects.get(id=1)
     profile_form = ProfileForm(request.POST or None, instance=request.user.profile)
     return render(request, 'edit_profile.html', {
         'profile_form': profile_form

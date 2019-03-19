@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="text">Features</h1>
+
+<section class="panel-container">
+    {% for feature in features %}
+
+    <a href="{% url 'single_feature' feature.id %}">
+        <div class="feature-panel">
+        <div class="row">
+            <div class="col-lg-9 col-md-12">
+                <h1 class="feature-title text"> {{ feature.name }} </h1>
+            </div>
+            <div class="col-lg-3 col-md-12">
+                <p class="feature-status text"> {{ feature.get_status_display }} </p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <p class="feature-author text"><span><i class="fa fa-user icon"></i></span> {{ feature.author }} </p>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <p class="feature-likes text"><span><i class="fa fa-thumbs-up icon"></i></span> {{ feature.likes }} </p>
+            </div>
+        </div>
+        <hr class="hr">
+        <div class="row text-container">
+            <div class="col-lg-12 col-md-12">
+                <p class="text feature-description"> {{ feature.description }} </p>
+            </div>
+        </div>
+        <hr class="hr">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <p> {{ feature.created_date }} </p>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <p> Comments: </p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <p> Total Money Raised: <strong>£{{ feature.money_donated }} </strong></p>
+        </div>
+    </div>
+    </a>
+
+    {% endfor %}
+</section>
+{% endblock %}
