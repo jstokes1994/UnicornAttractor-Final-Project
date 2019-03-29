@@ -35,19 +35,23 @@
     <hr class="hr">
     <div class="row">
         <div class="col-lg-6 col-md-6">
-            <p> {{ feature.created_date }} </p>
+            <p class="text"> {{ feature.created_date }} </p>
         </div>
         <div class="col-lg-6 col-md-6">
-            <p> Total Money Raised: <strong>£{{ feature.money_donated }} </strong>
-                <span><form method='get' action='#'>
-                    <input type="submit" value="Upvote" name="Upvote" />
-                </form></span>
+            <p class="text"> Total Money Raised: <strong>£{{ feature.money_donated }} </strong>
+                <span>
+                    <form method="get" action="{% url 'add_to_cart' feature.id %}">
+                        <button class="btn btn-success text" type="submit">
+                            Donate to see this happen!
+                        </button>
+                    </form>
+                </span>
             </p>
         </div>
     </div>
     <br>
     <div class="row">
-        <p> Comments: </p>
+        <p class="text"> Comments: </p>
     </div>
 </div>
 

@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="single-feature-panel">
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+            <h1 class="feature-title text"> {{ bug.name }} </h1>
+        </div>
+        <div class="col-lg-3 col-md-12">
+            <p class="feature-status text"> {{ bug.get_status_display }} </p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <p class="feature-author text"><span><i class="fa fa-user icon"></i></span> {{ bug.author }} </p>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <p class="feature-likes text">
+                <form class="single_bug" action="#" method="get">
+                    <button class="like-button" type="submit" value="Like" name="Like">
+                        <i class="fas fa-thumbs-up"><span class="button-spacing">{{ bug.likes }}</span></i>
+                    </button>
+                </form>
+            </p>
+        </div>
+    </div>
+    <hr class="hr">
+    <div class="row text-container">
+        <div class="col-lg-12 col-md-12">
+            <p class="text feature-description"> {{ bug.description }} </p>
+        </div>
+    </div>
+    <hr class="hr">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <p> {{ bug.created_date }} </p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <p> Comments: </p>
+    </div>
+</div>
+
+
+
+{% endblock %}

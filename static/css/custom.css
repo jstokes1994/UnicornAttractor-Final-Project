@@ -124,6 +124,10 @@ footer {
 
 /*Features*/
 
+.feature-panel:hover {
+    border: 2px solid red;
+}
+
 .panel-container {
     width: 80%;
     min-height: 100vh;
@@ -174,6 +178,19 @@ footer {
     border-color: black;
 }
 
+.quantity_input {
+    width: 100px;
+    height: 40px;
+}
+
+.quantity_button {
+    height: 40px;
+}
+
+.input-group {
+    margin: auto;
+}
+
 
 /*Single Feature Page */
 
@@ -198,4 +215,50 @@ footer {
 
 .text-container {
     min-height: 100px;
+}
+
+/*single bug*/
+
+.single_bug {
+    float: right;
+}
+
+.button-spacing {
+    padding: 3px;
+}
+
+.input-group {
+    padding: 20px; 
+}
+
+.quantity_button {
+    padding: 10px;
+    margin-left: 5px;
+}
+
+/*cart*/
+
+.feature-panel-cart {
+    width: 48%;
+    margin: 5px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    min-height: 270px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.total-text {
+    font-family: 'Oswald';
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.total-container {
+    display: inline-block;
+}
+
+.total-number {
+    padding: 0;
 }

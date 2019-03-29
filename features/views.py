@@ -39,8 +39,10 @@ def single_feature(request, feature_id):
             messages.error(request,'You have already voted!')
         else:
             feature.votes.up(user_id)
-            feature.money_donated + 10
-            messages.error(request,'You have already voted!')
+            feature.money_donated += 10
+            feature.save()
+            
+            messages.error(request,'Thanks for your donation!')
         
     print(feature.votes.count())
     

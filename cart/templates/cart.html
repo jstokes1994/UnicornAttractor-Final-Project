@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block content %} {% load bootstrap_tags %}
+
+<h1 class="text">Cart</h1>
+
+<section class="panel-container">
+    {% for item in cart_items %}
+
+    <div class="feature-panel-cart">
+        <div class="row">
+            <div class="col-lg-9 col-md-12">
+                <h1 class="feature-title text"> {{ item.feature.name }} </h1>
+            </div>
+            <div class="col-lg-3 col-md-12">
+                <p class="feature-status text"> {{ item.feature.get_status_display }} </p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <p class="feature-author text"><span><i class="fa fa-user icon"></i></span> {{ item.feature.author }} </p>
+            </div>
+        </div>
+        <hr class="hr">
+        <div class="row text-container">
+            <div class="col-lg-12 col-md-12">
+                <p class="text feature-description"> {{ item.feature.description }} </p>
+            </div>
+        </div>
+        <hr class="hr">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <p class="text"> {{ item.feature.created_date }} </p>
+            </div>
+        </div>
+        <div class="row">
+            <form method="POST" action="{% url 'adjust_cart' item.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="10" max="999" class="form-control">
+                        <div class="input-group-addon">Amount to Donate</div>
+                        <div class="input-group-addon">£{{item.quantity}}</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary"></span>Amend</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+
+    <br>
+    <br>
+    <br>
+    
+    <div class="row total-container">
+        <div class="col-lg-4 col-md-4">
+            <p class="total-text">Total</p> 
+        </div>
+        
+        <div class="col-lg-4 col-md-4 total-number">
+            <p class="total-text">£{{ total }}</p>
+        </div>
+        
+        <div class="col-lg-4 col-md-4 total-number">
+            <a href="#" class="btn btn-primary" role="button"></span>Checkout</a>
+        </div>
+    </div>
+    
+</section>
+{% endblock %}
