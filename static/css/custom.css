@@ -2,6 +2,9 @@
 
 /* General */
 
+#container_2, #container_3, #container_1, #container_4 {
+    display: inline-block;
+}
 
 html {
     margin: 0;
@@ -9,9 +12,7 @@ html {
 }
 
 body {
-    padding-top: 60px;
-    padding-left: 40px;
-    margin: 0;
+    margin: 50px 0 0 0;
 }
 
 p {
@@ -34,6 +35,23 @@ footer {
 .text {
     font-family: "Oswald";
     color: #443c3f;
+}
+
+.page_title {
+    text-align: center;
+}
+
+.add_button {
+    text-align: right;
+    margin-right: 25px;
+}
+
+.add_button_spacing {
+    padding: 2px;
+}
+
+.edit_button {
+    text-align: right;
 }
 
 /* Nav */
@@ -146,6 +164,12 @@ footer {
     display: inline-block;
 }
 
+@media only screen and (max-width: 1000px) {
+  .feature-panel {
+    width: 98%;
+  }
+}
+
 .feature-title {
     text-align: left;
     float: left;
@@ -167,11 +191,23 @@ footer {
 }
 
 .feature-description {
-    width: 60ch;
+    width: 40ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-right: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .feature-description {
+    width: 75ch;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .feature-description {
+    width: 40ch;
+  }
 }
 
 .hr {
@@ -214,7 +250,13 @@ footer {
 }
 
 .text-container {
-    min-height: 100px;
+    min-height: 50px;
+    margin-left: 0;
+}
+
+.comment-form-label {
+    padding: 5px;
+    margin: 0;
 }
 
 /*single bug*/
@@ -262,3 +304,9 @@ footer {
 .total-number {
     padding: 0;
 }
+
+.delete-cart {
+    float: right;
+    margin-right: 10px;
+}
+

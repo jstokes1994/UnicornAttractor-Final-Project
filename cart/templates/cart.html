@@ -1,11 +1,12 @@
 {% extends 'base.html' %} {% block content %} {% load bootstrap_tags %}
 
-<h1 class="text">Cart</h1>
+<h1 class="text page_title">Cart</h1>
 
 <section class="panel-container">
     {% for item in cart_items %}
 
     <div class="feature-panel-cart">
+
         <div class="row">
             <div class="col-lg-9 col-md-12">
                 <h1 class="feature-title text"> {{ item.feature.name }} </h1>
@@ -45,6 +46,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary"></span>Amend</button>
             </form>
+            <div class="delete-cart row">
+                <form method="POST" action="{% url 'remove_from_cart' item.id %}">
+                    {% csrf_token %}
+                    <button class="delete-cart btn btn-danger" type="submit"><span><i class="fa fa-trash-alt icon"></i></span></button>
+                </form>
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -52,20 +59,20 @@
     <br>
     <br>
     <br>
-    
+
     <div class="row total-container">
         <div class="col-lg-4 col-md-4">
-            <p class="total-text">Total</p> 
+            <p class="total-text">Total</p>
         </div>
-        
+
         <div class="col-lg-4 col-md-4 total-number">
             <p class="total-text">£{{ total }}</p>
         </div>
-        
+
         <div class="col-lg-4 col-md-4 total-number">
-            <a href="#" class="btn btn-primary" role="button"></span>Checkout</a>
+            <a href="{% url 'checkout' %}" class="btn btn-primary" role="button"></span>Checkout</a>
         </div>
     </div>
-    
+
 </section>
 {% endblock %}

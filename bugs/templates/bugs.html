@@ -1,9 +1,16 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1 class="text">Bugs</h1>
+{% load threadedcomments_tags %}
+
+<h1 class="text page_title">Bugs</h1>
 
 <section class="panel-container">
+    <form class="add_button" action="{% url 'add_bug' %}" method="GET">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit"><span><i class="fas fa-plus"></i></span> Add Bug</button>
+    </form>
     {% for bug in bugs %}
+    {% get_comment_count for bug as comment_count %}
 
     <a href="{% url 'single_bug' bug.id %}">
         <div class="feature-panel">
@@ -21,7 +28,9 @@
                 <p class="feature-author text"><span><i class="fa fa-user icon"></i></span> {{ bug.author }} </p>
             </div>
             <div class="col-lg-6 col-md-12">
-                <p class="feature-likes text"><span><i class="fa fa-thumbs-up icon"></i></span> {{ bug.likes }} </p>
+                <p class="feature-likes text">
+                    <i class="fas fa-thumbs-up"><span class="button-spacing">{{ bug.likes }}</span></i>
+                </p>
             </div>
         </div>
         <hr class="hr">
@@ -36,7 +45,7 @@
                 <p class="text"> {{ bug.created_date }} </p>
             </div>
             <div class="col-lg-6 col-md-6">
-                <p class="text"> Comments: </p>
+                <p class="text"> Comments: {{ comment_count }}</p>
             </div>
         </div>
         <br>

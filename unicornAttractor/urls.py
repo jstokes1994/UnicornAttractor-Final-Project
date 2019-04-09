@@ -20,6 +20,8 @@ from accounts import urls as urls_accounts
 from features import urls as urls_features
 from bugs import urls as urls_bugs
 from cart import urls as urls_cart
+from graphs import urls as urls_graphs
+from checkout import urls as urls_checkout
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -31,5 +33,8 @@ urlpatterns = [
     url(r'^features/', include(urls_features)),
     url(r'^bugs/', include(urls_bugs)),
     url(r'^cart/', include(urls_cart)),
+    url(r'^checkout/', include(urls_checkout)),
+    url(r'^graphs/', include(urls_graphs)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
+    url(r'^articles/comments/', include('django_comments.urls')),
 ]

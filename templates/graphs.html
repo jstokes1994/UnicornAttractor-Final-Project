@@ -1,0 +1,216 @@
+{% extends "base.html" %} {% block content %}
+
+<div id="container_1" style="width:49%; height:400px;"></div>
+<div id="container_4" style="width:49%; height:400px;"></div>
+<div id="container_2" style="width:49%; height:400px;"></div>
+<div id="container_3" style="width:49%; height:400px;"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var all_users = "{{ all_users }}";
+        var all_bugs = "{{ all_bugs }}";
+        var all_features = "{{ all_features }}";
+
+        var most_paid_name_1 = "{{ most_paid_name_1 }}";
+        var most_paid_name_2 = "{{ most_paid_name_2 }}";
+        var most_paid_name_3 = "{{ most_paid_name_3 }}";
+        var most_paid_name_4 = "{{ most_paid_name_4 }}";
+        var most_paid_name_5 = "{{ most_paid_name_5 }}";
+
+        var most_paid_money_1 = "{{ most_paid_money_1 }}";
+        var most_paid_money_2 = "{{ most_paid_money_2 }}";
+        var most_paid_money_3 = "{{ most_paid_money_3 }}";
+        var most_paid_money_4 = "{{ most_paid_money_4 }}";
+        var most_paid_money_5 = "{{ most_paid_money_5 }}";
+
+        var most_liked_bug_name_1 = "{{ most_liked_bug_name_1 }}";
+        var most_liked_bug_name_2 = "{{ most_liked_bug_name_2 }}";
+        var most_liked_bug_name_3 = "{{ most_liked_bug_name_3 }}";
+        var most_liked_bug_name_4 = "{{ most_liked_bug_name_4 }}";
+        var most_liked_bug_name_5 = "{{ most_liked_bug_name_5 }}";
+
+        var most_liked_bug_likes_1 = "{{ most_liked_bug_likes_1 }}";
+        var most_liked_bug_likes_2 = "{{ most_liked_bug_likes_2 }}";
+        var most_liked_bug_likes_3 = "{{ most_liked_bug_likes_3 }}";
+        var most_liked_bug_likes_4 = "{{ most_liked_bug_likes_4 }}";
+        var most_liked_bug_likes_5 = "{{ most_liked_bug_likes_5 }}";
+
+        var overall_done_status = "{{ overall_done_status }}";
+        var overall_dev_status = "{{ overall_dev_status }}";
+        var overall_nd_status = "{{ overall_nd_status }}";
+
+
+
+        var myChart = Highcharts.chart('container_1', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Site Traffic'
+            },
+            tooltip: {
+                pointFormat: '<b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Count',
+                colorByPoint: true,
+                data: [{
+                    name: 'Users',
+                    y: parseFloat(all_users),
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Features',
+                    y: parseFloat(all_features)
+                }, {
+                    name: 'Bugs',
+                    y: parseFloat(all_bugs)
+                }]
+            }]
+        });
+
+        Highcharts.chart('container_2', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Top 5 Features With The Highest Donations'
+            },
+            xAxis: {
+                categories: [most_paid_name_1, most_paid_name_2, most_paid_name_3, most_paid_name_4, most_paid_name_5],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Money Donated (£)',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Most Popular Features',
+                data: [parseFloat(most_paid_money_1), parseFloat(most_paid_money_2),
+                    parseFloat(most_paid_money_3), parseFloat(most_paid_money_4),
+                    parseFloat(most_paid_money_5)
+                ]
+            }]
+        });
+        Highcharts.chart('container_3', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Most Liked Bugs'
+            },
+            xAxis: {
+                categories: [most_liked_bug_name_1, most_liked_bug_name_2, most_liked_bug_name_3, most_liked_bug_name_4, most_liked_bug_name_5],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Likes',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Most Liked Bugs',
+                data: [parseFloat(most_liked_bug_likes_1), parseFloat(most_liked_bug_likes_2),
+                    parseFloat(most_liked_bug_likes_3), parseFloat(most_liked_bug_likes_4),
+                    parseFloat(most_liked_bug_likes_5)
+                ]
+            }]
+        });
+        Highcharts.chart('container_4', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+            title: {
+                text: 'Status<br>of<br>Features/Bugs',
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 40
+            },
+            tooltip: {
+                pointFormat: '<b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white'
+                        }
+                    },
+                    startAngle: -90,
+                    endAngle: 90,
+                    center: ['50%', '75%'],
+                    size: '110%'
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Status',
+                innerSize: '50%',
+                data: [
+                    ['Done', parseFloat(overall_done_status)],
+                    ['In Development', parseFloat(overall_dev_status)],
+                    ['Not Started', parseFloat(overall_nd_status)],
+                ]
+            }]
+        });
+
+    });
+</script>
+
+{% endblock %}

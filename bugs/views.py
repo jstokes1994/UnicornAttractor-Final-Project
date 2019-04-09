@@ -22,7 +22,7 @@ def add_bug(request):
 @login_required
 def bugs(request):
     # Returns all of the bugs in the database
-    bugs = Bug.objects.all()
+    bugs = Bug.objects.all().order_by('-created_date')
     return render(request, "bugs.html", {'bugs': bugs})
     
 @login_required

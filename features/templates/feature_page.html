@@ -1,12 +1,6 @@
 {% extends 'base.html' %} {% block content %}
+{% load threadedcomments_tags %}
 
-<!--<div class="panel-single">-->
-
-<!--<h1 class="feature-title text"> {{ feature.name }} </h1>-->
-
-<!--<p> {{ feature.description }} </p>-->
-
-<!--</div>-->
 
 <div class="single-feature-panel">
     <div class="row">
@@ -52,6 +46,10 @@
     <br>
     <div class="row">
         <p class="text"> Comments: </p>
+        <br>
+        {% render_comment_list for feature %}
+        {% render_comment_form for feature %}
+        
     </div>
 </div>
 

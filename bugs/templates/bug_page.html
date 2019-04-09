@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+{% load threadedcomments_tags %}
 
 <div class="single-feature-panel">
     <div class="row">
@@ -39,6 +40,9 @@
     <br>
     <div class="row">
         <p> Comments: </p>
+        <br>
+        {% render_comment_list for bug %}
+        {% render_comment_form for bug %}
     </div>
 </div>
 
