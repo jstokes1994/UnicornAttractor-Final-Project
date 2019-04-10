@@ -17,7 +17,6 @@ def add_to_cart(request, id):
         cart[id] = cart.get(id, quantity) 
 
     request.session['cart'] = cart
-    print(cart)
     return redirect(reverse('features'))
 
 def remove_from_cart(request, id):
