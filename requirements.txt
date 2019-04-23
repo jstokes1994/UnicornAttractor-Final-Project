@@ -15,6 +15,7 @@ django-tag-parser==3.1
 django-threadedcomments==1.2
 django-vote==2.1.7
 docutils==0.14
+gunicorn==19.7.1
 html5lib==0.999
 idna==2.8
 jmespath==0.9.4

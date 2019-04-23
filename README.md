@@ -105,6 +105,8 @@ graphs
 - Make sure when a donation is made that pushes into top 5 it is shown straight
 away on stats page
 
+### Testing with Travis CI
+
 [![Build Status](https://travis-ci.org/jstokes1994/UnicornAttractor-Final-Project.svg?branch=master)](https://travis-ci.org/jstokes1994/UnicornAttractor-Final-Project)
 
 
@@ -113,7 +115,7 @@ away on stats page
 To Clone the project from github:
 
 ```python
-$ git clone https://github.com/jstokes1994/online-cookbook.git
+$ git clone https://github.com/jstokes1994/UnicornAttractor-Final-Project
 ```
 
 I recommend deploying the project in a virtual envioronment:
