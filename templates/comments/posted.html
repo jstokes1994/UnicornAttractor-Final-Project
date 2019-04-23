@@ -1,0 +1,12 @@
+{% extends "comments/base.html" %}{% load i18n %} {% block content %}
+
+<div class="container-fluid section-container">
+    <div class="posted-center">
+        <h2 class="text page-title">{% trans "Thanks for posting your comment" %}</h2>
+        <p class="text">We have received it, and will go ahead and post it!<br/></p>
+        <a href="{{request.META.HTTP_REFERER}}">Click here to return to the post</a>
+    </div>
+</div>
+
+
+{% endblock %}

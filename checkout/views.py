@@ -51,6 +51,7 @@ def checkout(request):
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
                 feature.money_donated += quantity
+                feature.save()
                 return redirect(reverse('features'))
             else:
                 messages.error(request, "Unable to take payment")

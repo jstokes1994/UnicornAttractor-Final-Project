@@ -36,5 +36,7 @@ urlpatterns = [
     url(r'^checkout/', include(urls_checkout)),
     url(r'^graphs/', include(urls_graphs)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
-    url(r'^articles/comments/', include('django_comments.urls')),
+    url(r'^articles/comments/', include('fluent_comments.urls')),
 ]
+
+# django_comments.urls

@@ -2,14 +2,14 @@
 {% if user.is_authenticated %}
     <form action="{% comment_form_target %}" method="post">
         {% csrf_token %}
-        {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+        {% if next %}<input type="hidden" name="next" value="{{ form.instance.content_object.get_absolute_url }}" />{% endif %}
         {% for field in form %}
             {% if field.is_hidden %}
                 {{ field }}
             {% else %}
                 {% if field.name != "email" and field.name != "url" %}
                     {% if field.errors %}{{ field.errors }}{% endif %}
-                    <label class="comment-form-label" {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>{{field.name}}</label>
+                    <label class="comment-form-label" {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>{{field.name|title}}</label>
                     <p {% if field.errors %} class="error"{% endif %} 
                     {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
                     {{ field }}

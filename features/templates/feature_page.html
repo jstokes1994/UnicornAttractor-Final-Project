@@ -34,10 +34,12 @@
         <div class="col-lg-6 col-md-6">
             <p class="text"> Total Money Raised: <strong>£{{ feature.money_donated }} </strong>
                 <span>
-                    <form method="get" action="{% url 'add_to_cart' feature.id %}">
-                        <button class="btn btn-success text" type="submit">
-                            Donate to see this happen!
-                        </button>
+                    <form method="POST" action="{% url 'add_to_cart' feature.id %}">
+                    {% csrf_token %}
+                        <div class="input-group">
+                            <input name="quantity" type="number" min="10" max="999" class="quantity_input" placeholder="Amount">
+                            <button class="btn btn-success quantity_button" type="submit">Donate to see this happen!</button>
+                        </div>
                     </form>
                 </span>
             </p>

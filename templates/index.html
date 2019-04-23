@@ -1,24 +1,37 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static from staticfiles %}
+
 
 <section>
     <div class="row">
-
         <div class="home-container">
             <div class="home-background-message">
                 <h1 class="homepage-callout text">Collaborate, Innovate & Succeed</h1>
                 <h4 class="text homepage-callout">Sign up to become a valued part of our growing community, share bugs and suggest new features</h4>
-                <form method="post" action="{% url 'register' %}">
+                <form method="post" action="{% url 'register' %}" class="sign-form-button">
                     {% csrf_token %}
-                        <button class="btn btn-success btn-lg signup-button" type="submit">Sign Up Now!</button>
+                    <button class="btn btn-success btn-lg signup-button" type="submit">Sign Up Now!</button>
                 </form>
+               <a href="#ex1" class="btn btn-danger btn-lg findmore-button" rel="modal:open">Find Out More!</a>
+            </div>
+
+            <!-- Modal HTML embedded directly into document -->
+            <div id="ex1" class="modal">
+                <h4 class="text"><u>Who Are We?</u></h4>
+                <p class="text">UnicornAttractor is an innovative new app that relies on input from the community to decide its direction.</p>
+                <br>
+                <h4 class="text"><u>Feature Ideas?</u></h4>
+                <p class="text">Our valued users are able to suggest new features they would like to see on the app for a fee. Other users are then able to donate towards the feature.
+                Apps with the highest donations will be worked on as a matter of priority.</p>
+                <br>
+                <h4 class="text"><u>Report Bugs!</u></h4>
+                <p class="text">Users are also able to post bugs on the website with other users able to like them. We will look to amend all of the bugs posted but the most liked
+                will be our priorities.</p>
+                <br>
+                <a href="#" rel="modal:close">Close</a>
             </div>
         </div>
 
     </div>
 </section>
-
-<footer>
-    <h1>Footer</h1>
-</footer>
 
 {% endblock %}

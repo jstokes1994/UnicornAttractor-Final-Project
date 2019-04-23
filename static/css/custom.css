@@ -2,10 +2,6 @@
 
 /* General */
 
-#container_2, #container_3, #container_1, #container_4 {
-    display: inline-block;
-}
-
 html {
     margin: 0;
     padding: 0;
@@ -19,17 +15,12 @@ p {
     margin: 0;
 }
 
-.container-fluid {
-    padding: 0;
-    margin: 0;
-}
 
-footer {
-    margin-top: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
+.section-container {
+    height: 75vh;
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
 }
 
 .text {
@@ -58,6 +49,18 @@ footer {
 
 .navbar {
     background-image: linear-gradient(#131213, #131213 60%, #131213);
+}
+
+.nav-list {
+    font-size: 18px;
+}
+
+.nav-heading {
+    font-size: 28px;
+}
+
+.nav-link {
+    padding-bottom: 20px
 }
 
 /* Profile.html */
@@ -89,6 +92,44 @@ footer {
     font-weight: bold;
 }
 
+
+@media screen and (max-width: 775px) {
+    .user-contact {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .welcome {
+        font-size: 22px;
+    }
+    .bio-size {
+        font-size: 12px;
+        width: 40ch;
+    }
+    .profile-pic-container {
+        height: 200px;
+        width: 230px;
+        padding: 5px;
+    }
+    .edit_button {
+        text-align: left;
+    }
+}
+
+@media screen and (max-height: 620px) {
+    .profile-pic-img {
+        display: none;
+    }
+    .profile-pic-container {
+        height: 0;
+    }
+    .edit_button {
+        padding-top: 5px;
+    }
+}
+
+
 /*  Home  */
 
 .homepage-callout {
@@ -112,25 +153,31 @@ footer {
 
 .home-container {
     padding-top: 100px;
-    height: 80vh;
+    height: 75vh;
     min-width: 100%;
     min-height: 100%;
     position: relative;
 }
 
 .home-background-message {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 
 }
 
 .signup-button {
     text-align: center;
+}
+
+.sign-form-button,
+.signup-button,
+.findmore-button {
+    display: inline-block;
 }
 
 /*Add Feature*/
@@ -165,9 +212,9 @@ footer {
 }
 
 @media only screen and (max-width: 1000px) {
-  .feature-panel {
-    width: 98%;
-  }
+    .feature-panel {
+        width: 98%;
+    }
 }
 
 .feature-title {
@@ -181,7 +228,8 @@ footer {
     text-align: right;
 }
 
-.feature-status, .feature-likes {
+.feature-status,
+.feature-likes {
     text-align: right;
     float: right;
 }
@@ -199,15 +247,21 @@ footer {
 }
 
 @media only screen and (max-width: 1000px) {
-  .feature-description {
-    width: 75ch;
-  }
+    .feature-description {
+        width: 75ch;
+    }
 }
 
 @media only screen and (max-width: 800px) {
-  .feature-description {
-    width: 40ch;
-  }
+    .feature-description {
+        width: 40ch;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .feature-description {
+        width: 20ch;
+    }
 }
 
 .hr {
@@ -241,12 +295,13 @@ footer {
 
 .single-feature-panel {
     width: 80%;
-    margin: auto;
+    margin: 20px auto 20px auto;
     text-align: center;
     border: 1px solid black;
     border-radius: 15px;
     min-height: 400px;
     padding: 10px;
+
 }
 
 .text-container {
@@ -270,7 +325,7 @@ footer {
 }
 
 .input-group {
-    padding: 20px; 
+    padding: 20px;
 }
 
 .quantity_button {
@@ -289,6 +344,12 @@ footer {
     min-height: 270px;
     padding: 10px;
     display: inline-block;
+}
+
+@media only screen and (max-width: 1000px) {
+    .feature-panel-cart {
+        width: 98%;
+    }
 }
 
 .total-text {
@@ -310,3 +371,84 @@ footer {
     margin-right: 10px;
 }
 
+@media only screen and (max-width: 350px) {
+    .input-group {
+        display: block;
+    }
+}
+
+
+/*Graphs*/
+
+#container_2,
+#container_3,
+#container_1,
+#container_4 {
+    display: inline-block;
+}
+
+/*Footer*/
+
+footer {
+    background-color: black;
+    padding-bottom: 40px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.footer-callout {
+    text-align: center;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.social_media {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    padding: 0 7px 0 7px;
+}
+
+.footer-list {
+    list-style: none;
+    display: inline-block;
+}
+
+.li-center {
+    display: inline-block;
+    padding: 5px;
+}
+
+.footer-text-color {
+    color: white;
+}
+
+/*posted*/
+
+.posted-center {
+    text-align: center;
+    padding: 100px 0;
+}
+
+/*Graphs*/
+
+#container_1,
+#container_2,
+#container_3,
+#container_4 {
+    width: 49%;
+    height: 400px;
+}
+
+@media only screen and (max-width: 680px) {
+    #container_1,
+    #container_2,
+    #container_3,
+    #container_4 {
+        width: 98%;
+    }
+}
