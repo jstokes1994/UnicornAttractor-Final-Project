@@ -105,6 +105,8 @@ graphs
 - Make sure when a donation is made that pushes into top 5 it is shown straight
 away on stats page
 
+[![Build Status](https://travis-ci.org/jstokes1994/UnicornAttractor-Final-Project.svg?branch=master)](https://travis-ci.org/jstokes1994/UnicornAttractor-Final-Project)
+
 
 ## Deployment
 
