@@ -11,7 +11,7 @@ the opportunity to further edit their profile after registration.
 
 The website essentially represents a hypothetical app in which users are given 
 the ability to decide the direction of the app. It integrates ecommerce
-functionality that allows users to suggest new features for the app for a fee. 
+functionality that allows users to suggest new features and donate from there. 
 Other users can also donate for previously made features and the features with
 the highest money donated will be worked on as priority. Users are also able to 
 post any bugs they have found. Other users are able to 'like' the bug to inform

@@ -14,7 +14,7 @@ def add_feature(request):
         if form.is_valid():
             new_feature = form.save(commit=False)
             new_feature.author = request.user
-            new_feature.money_donated = 10
+            new_feature.money_donated = 0
             new_feature.save()
             return(redirect('features'))
     else:
